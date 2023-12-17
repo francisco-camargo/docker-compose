@@ -1,0 +1,56 @@
+services:
+  # the following service names are arbitrary, but the chosen names will correspond to the host names
+  # each service should have it's own Dockerfile
+  web:
+    # let's build an image from Dockerfile
+    build: ./frontend
+    ports:
+      - 3000:3000
+    # volumes:
+    #   - ./frontend:/app
+      # see api volumes service section
+
+  web-test:
+    image: vidly-web
+      # use image that will be created by web service
+    # volumes:
+    #   - ./frontend:/app
+      # see api volumes service section
+    command: npm test
+    
+  api:
+    build: ./backend
+    ports:
+      - 3001:3001
+    environment:
+      DB_URL: mongodb://db/vidly
+      # point to the db host which is defined under services
+    # volumes:
+    #   - ./backend:/app
+      # enables seeing changes in the source-code right away in the container
+      # however this will require having npm installed in the host machine
+    # command: ./wait-for db:27017 && migrate-mongo up && npm start
+      # will override the CMD of /backend/Dockerfile
+    command: ./docker-entrypoint.sh
+      # same as above but the commands we want are written out in ./docker-entrypoint.sh
+
+  api-test:
+    image: vidly-api
+      # use image that will be created by api service
+    # volumes:
+    #   - ./backend:/app
+      # see api volumes service section
+    command: npm test
+
+  db:
+    # pull image from dockerhub
+    image: mongo:4.0-xenial
+    ports:
+      - 27017:27017
+    volumes:
+      - vidly:/data/db
+        # /data/db is the default for mongodb
+        # gives the database permanence after the container is stopped 
+
+volumes:
+  vidly:
