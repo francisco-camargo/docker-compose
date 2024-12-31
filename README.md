@@ -5,6 +5,17 @@ Multi-container Applications
 
 Francisco Camargo
 
+# Introduction
+
+With this repo we build an application made up of a React front-end, a Node back-end, and a MongoDB database. We will orchastrate this with multiple containers overscene but `docker-compose`.
+
+This project will teach us about
+
+* Docker Compose
+* Docker networking
+* Database migration
+* Running automated test
+
 # `docker-compose.yaml`
 
 The `docker-compose.yaml` file is how we can orchestrate what would otherwise have to be a series of manual `docker` commands needed to launch the various assets of our application; frontend, backend, database, etc.
