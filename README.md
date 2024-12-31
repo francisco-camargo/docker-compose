@@ -7,7 +7,7 @@ Francisco Camargo
 
 # Introduction
 
-With this repo we build an application made up of a React front-end, a Node back-end, and a MongoDB database. We will orchastrate this with multiple containers overscene but `docker-compose`.
+With this repo we build an application made up of a React front-end, a Node back-end, and a MongoDB database. We will orchestrate this with multiple containers using `docker-compose`.
 
 This project will teach us about
 
@@ -15,6 +15,14 @@ This project will teach us about
 * Docker networking
 * Database migration
 * Running automated test
+
+# Install Docker Compose
+
+On Mac and Windows, Docker Engine already comes with Docker Compose. But if you need to install it seperatly, [here](https://docs.docker.com/compose/install/) is a guide.
+
+Verify that Docker Compose is working by running
+
+`docker-compose --version`
 
 # `docker-compose.yaml`
 
