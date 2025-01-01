@@ -17,7 +17,7 @@ services:
     #   - ./frontend:/app
       # see api volumes service section
     command: npm test
-    
+
   api:
     build: ./backend
     ports:
@@ -50,7 +50,7 @@ services:
     volumes:
       - vidly:/data/db
         # /data/db is the default for mongodb
-        # gives the database permanence after the container is stopped 
+        # gives the database permanence after the container is stopped
 
 volumes:
   vidly:
