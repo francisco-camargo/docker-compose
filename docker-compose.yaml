@@ -1,3 +1,6 @@
+# version:
+  # Docker no longer relies on the use of the version: field
+
 services:
   # the following service names are arbitrary, but the chosen names will correspond to the host names
   # each service should have it's own Dockerfile
