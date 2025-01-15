@@ -57,6 +57,39 @@ and images with
 
 Getting a `node_modules missing` error (or `nodemon: not found`). This is described in the video [11-Publishing Changes](https://members.codewithmosh.com/courses/the-ultimate-docker-course-1/lectures/31450211). The error arises because the `api` host using `./backend` as a volume to reflect the source code, but `/node_modules` is not in the source code. The suggested solution is to run `npm install` from within the `./backend` source code folder and then run `docker-compose up`.
 
+### Missing wait-for file
+Keep getting error after running `docker-compose up` whereby the `api` container is unable to find the backend `wait-for` file. When I look at the container logs I see the following:
+```shell
+2025-01-15 02:28:40 ./docker-entrypoint.sh: line 2:
+: not found
+2025-01-15 02:28:40 ./docker-entrypoint.sh: line 4: ./wait-for: not found
+2025-01-15 02:28:40 ./docker-entrypoint.sh: line 5:
+: not found
+2025-01-15 02:28:43 ./docker-entrypoint.sh: line 8:
+: not found
+2025-01-15 02:28:40 Waiting for MongoDB to start...
+2025-01-15 02:28:40 Migrating the databse...
+2025-01-15 02:28:41
+2025-01-15 02:28:41 > vidly-backend@1.0.0 db:up /app
+2025-01-15 02:28:41 > migrate-mongo up "
+"
+2025-01-15 02:28:41
+2025-01-15 02:28:43 MIGRATED UP: 20210208213312-populate-movies.js
+2025-01-15 02:28:43 Starting the server...
+2025-01-15 02:28:43
+2025-01-15 02:28:43 > vidly-backend@1.0.0 start /app
+2025-01-15 02:28:43 > nodemon --ignore './tests' index.js
+2025-01-15 02:28:43
+2025-01-15 02:28:44 [nodemon] 2.0.7
+2025-01-15 02:28:44 [nodemon] to restart at any time, enter `rs`
+2025-01-15 02:28:44 [nodemon] watching path(s): *.*
+2025-01-15 02:28:44 [nodemon] watching extensions: js,mjs,json
+2025-01-15 02:28:44 [nodemon] starting `node index.js`
+2025-01-15 02:28:45 Server started on port 3001...
+2025-01-15 02:28:45 Connected to MongoDB: mongodb://db/vidly
+2025-01-15 02:28:45 Connected to MongoDB: mongodb://db/vidly
+```
+
 ## Stop Application
 
 To stop and remove the containers
