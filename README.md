@@ -90,6 +90,16 @@ we can also check the status of all the containers:
 
 As of 2025-01-15, I am not able to get the current `main` commit nor the `restore_2023_code` commit to run if I start from scratch. I tried this on three different machines.
 
+Using
+
+```bash
+ENTRYPOINT ['sh', './docker-entrypoint.sh']
+```
+
+Allowed `docker-entrypoint.sh` to run! I was then observing errors within the backend container (even though the app still seemed to run when I inspect in the browser). These went away when I change the end-of-line character from CRLF to LF in both `docker-entrypoint.sh` and `wait-for`
+
+![1736977395710](image/README/1736977395710.png)
+
 ### `node_modules missing` Error
 
 Getting a `node_modules missing` error (or `nodemon: not found`). This is described in the video [11-Publishing Changes](https://members.codewithmosh.com/courses/the-ultimate-docker-course-1/lectures/31450211). The error arises because the `api` host using `./backend` as a volume to reflect the source code, but `/node_modules` is not in the source code. The suggested solution is to run `npm install` from within the `./backend` source code folder and then run `docker-compose up`.
