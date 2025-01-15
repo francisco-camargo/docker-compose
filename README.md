@@ -116,17 +116,15 @@ I was able to fix this by first visualizing the end-of-line characters with the 
 
 ![1736978107800](image/README/1736978107800.png)
 
+### Git End-of-Line handling
+
+In the previous section I was able to resolve my issues with Docker by changing CRLF to LF. However, when I commit changes to the repo, `git` by default converts (since I am on a Windows machine) to CRLF. [Here](https://betterstack.com/community/questions/git-replacing-lf-with-crlf/) is a guide on how to change this `git` setting locally.
+
+Making this change stick for the remote repo itself is not clear to me at this point, but it is a big topic online: [here](https://stackoverflow.com/questions/73573683/editing-gitattributes-to-normalize-line-endings-doesnt-work), [docs](https://git-scm.com/docs/gitattributes), [origin of .gitattributes](https://github.com/gitattributes/gitattributes/blob/master/.gitattributes), [working with .gitignore](https://stackoverflow.com/questions/18331048/how-to-create-a-git-attributes-file).
+
 ### `node_modules missing` Error
 
 Getting a `node_modules missing` error (or `nodemon: not found`). This is described in the video [11-Publishing Changes](https://members.codewithmosh.com/courses/the-ultimate-docker-course-1/lectures/31450211). The error arises because the `api` host using `./backend` as a volume to reflect the source code, but `/node_modules` is not in the source code. The suggested solution is to run `npm install` from within the `./backend` source code folder and then run `docker-compose up`.
-
-### Missing wait-for file
-
-Keep getting error after running `docker-compose up` whereby the `api` container is unable to find the backend `wait-for` file. When I look at the container logs I see the following:
-
-```shell
-./docker-entrypoint.sh: line 4: ./wait-for: not found
-```
 
 ## Stop Application
 
