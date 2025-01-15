@@ -35,13 +35,12 @@ services:
     #   - ./backend:/app
       # enables seeing changes in the source-code right away in the container
       # however this will require having npm installed in the host machine
+
+    # one or multiple of these options could work here but let's handle it in the /backend/Dockerfile:
     # command: ./wait-for db:27017 && migrate-mongo up && npm start
       # will override the CMD of /backend/Dockerfile
-    command: ./docker-entrypoint.sh
+    # command: ./docker-entrypoint.sh
       # same as above but the commands we want are written out in ./docker-entrypoint.sh
-      # this command is not working...
-    # command: docker-entrypoint.sh
-      # also not working...
     # command: ["sh", "docker-entrypoint.sh"]
       # https://forum.codewithmosh.com/t/backend-not-starting-in-vidly-app/3753/4
     # entrypoint: ['sh', './docker-entrypoint.sh']
