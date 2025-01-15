@@ -37,7 +37,7 @@ services:
       # however this will require having npm installed in the host machine
     # command: ./wait-for db:27017 && migrate-mongo up && npm start
       # will override the CMD of /backend/Dockerfile
-    command: ./docker-entrypoint.sh
+    # command: ./docker-entrypoint.sh
       # same as above but the commands we want are written out in ./docker-entrypoint.sh
       # this command is not working...
     # command: docker-entrypoint.sh

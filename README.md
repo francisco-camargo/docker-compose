@@ -34,23 +34,32 @@ I'm having to build the images directly first, before running the application
 
 `docker-compose build`
 
-To not use caching
+To force a build from scratch use
+
 `docker-compose build --no-cache`
 
 ## Run Application
 
 To run everything, from within the parent directory of this project, run
+
 `docker-compose up`
+
 This will build images if they are not built already
 
 To run in detached mode
+
 `docker-compose up -d`
 
 Can check on containers with
+
 `docker ps -a`
+
 or
+
 `docker-compose ps -a`
+
 and images with
+
 `docker images`
 
 As of 2025-01-15, the `main` and `restore_2023_code` branches are both working on the Win10 Dell machine. It is NOT working on either my Ubuntu Lenovo or Win10 Lenovo machines.
