@@ -80,7 +80,7 @@ and images with
 
 Can verify things are working by going to `localhost:3000` and seeing:
 
-![1736962434011](image/README/1736962434011.png)
+![1736972396553](image/README/1736972396553.png)
 
 we can also check the status of all the containers:
 
