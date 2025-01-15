@@ -30,6 +30,8 @@ The `docker-compose.yaml` file is how we can orchestrate what would otherwise ha
 
 ## Build Images
 
+I'm having to build the images directly first, before running the application
+
 `docker-compose build`
 
 To not use caching
