@@ -88,17 +88,33 @@ we can also check the status of all the containers:
 
 ### Shell script not found error
 
-As of 2025-01-15, I am not able to get the current `main` commit nor the `restore_2023_code` commit to run if I start from scratch. I tried this on three different machines.
+If you get a script not found error, try switching from
 
-Using
+```bash
+command: ./docker-entrypoint.sh
+```
+
+in `docker-compose.yaml` to
+
+```bash
+entrypoint: ['sh', './docker-entrypoint.sh']
+```
+
+or move it to the `backend/Dockerfile`
 
 ```bash
 ENTRYPOINT ['sh', './docker-entrypoint.sh']
 ```
 
-Allowed `docker-entrypoint.sh` to run! I was then observing errors within the backend container (even though the app still seemed to run when I inspect in the browser). These went away when I change the end-of-line character from CRLF to LF in both `docker-entrypoint.sh` and `wait-for`
+### End-of-Line Errors
+
+I was then observing errors within the backend container (even though the app still seemed to run when I inspect in the browser). These went away when I change the end-of-line character from CRLF to LF in both `docker-entrypoint.sh` and `wait-for`
 
 ![1736977395710](image/README/1736977395710.png)
+
+I was able to fix this by first visualizing the end-of-line characters with the `code-eol` VSCode extension by Soham Kamani. Then I could change the characters in VSCode via the GUI; [guide](https://blog.boot.dev/clean-code/line-breaks-vs-code-lf-vs-crlf/)
+
+![1736978107800](image/README/1736978107800.png)
 
 ### `node_modules missing` Error
 
