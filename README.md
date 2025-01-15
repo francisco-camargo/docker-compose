@@ -62,8 +62,6 @@ and images with
 
 `docker images`
 
-As of 2025-01-15, the `main` and `restore_2023_code` branches are both working on the Win10 Dell machine. It is NOT working on either my Ubuntu Lenovo or Win10 Lenovo machines.
-
 Can verify things are working by going to `localhost:3000` and seeing:
 
 ![1736962434011](image/README/1736962434011.png)
@@ -71,6 +69,10 @@ Can verify things are working by going to `localhost:3000` and seeing:
 we can also check the status of all the containers:
 
 ![1736962510255](image/README/1736962510255.png)
+
+### Shell script not found error
+
+As of 2025-01-15, I am not able to get the current `main` commit nor the `restore_2023_code` commit to run if I start from scratch. I tried this on three different machines.
 
 ### `node_modules missing` Error
 
