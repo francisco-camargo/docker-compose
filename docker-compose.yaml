@@ -39,7 +39,7 @@ services:
     # one or multiple of these options could work here but let's handle it in the /backend/Dockerfile:
     # command: ./wait-for db:27017 && migrate-mongo up && npm start
       # will override the CMD of /backend/Dockerfile
-    # command: ./docker-entrypoint.sh
+    command: ./docker-entrypoint.sh
       # same as above but the commands we want are written out in ./docker-entrypoint.sh
     # command: ["sh", "docker-entrypoint.sh"]
       # https://forum.codewithmosh.com/t/backend-not-starting-in-vidly-app/3753/4
