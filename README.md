@@ -120,7 +120,7 @@ I was able to fix this by first visualizing the end-of-line characters with the 
 
 In the previous section I was able to resolve my issues with Docker by changing CRLF to LF. However, when I commit changes to the repo, `git` by default converts (since I am on a Windows machine) to CRLF. [Here](https://betterstack.com/community/questions/git-replacing-lf-with-crlf/) is a guide on how to change this `git` setting locally.
 
-Making this change stick for the remote repo itself is not clear to me at this point, but it is a big topic online: [here](https://stackoverflow.com/questions/73573683/editing-gitattributes-to-normalize-line-endings-doesnt-work), [docs](https://git-scm.com/docs/gitattributes), [origin of .gitattributes](https://github.com/gitattributes/gitattributes/blob/master/.gitattributes), [working with .gitignore](https://stackoverflow.com/questions/18331048/how-to-create-a-git-attributes-file).
+Making this change stick for the remote repo itself is not clear to me at this point, but it is a big topic online: [guide](https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings) I am following, [discussion](https://stackoverflow.com/questions/73573683/editing-gitattributes-to-normalize-line-endings-doesnt-work), [docs](https://git-scm.com/docs/gitattributes), [origin of .gitattributes](https://github.com/gitattributes/gitattributes/blob/master/.gitattributes), [working with .gitignore](https://stackoverflow.com/questions/18331048/how-to-create-a-git-attributes-file).
 
 ### `node_modules missing` Error
 
