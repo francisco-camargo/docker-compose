@@ -16,7 +16,7 @@ This project will teach us about
 * Database migration
 * Running automated test
 
-# OS differences
+# OS differences (this may be incorrect)
 
 When running on Windows use
 
@@ -29,6 +29,8 @@ When running on Ubuntu use
 ```bash
 docker compose
 ```
+
+... [sounds like](https://stackoverflow.com/a/66516826) the `docker-compose` is v1 and `docker compose` is v2, so may be want to use `docker compose` regardless of OS.
 
 # Install Docker Compose
 
