@@ -16,21 +16,19 @@ This project will teach us about
 * Database migration
 * Running automated test
 
-# OS differences (this may be incorrect)
+# Version Differences
 
-When running on Windows use
+The old version ran by using
 
 ```bash
 docker-compose
 ```
 
-When running on Ubuntu use
+The new version runs by [using](https://stackoverflow.com/a/66516826)
 
 ```bash
 docker compose
 ```
-
-... [sounds like](https://stackoverflow.com/a/66516826) the `docker-compose` is v1 and `docker compose` is v2, so may be want to use `docker compose` regardless of OS.
 
 # Install Docker Compose
 
