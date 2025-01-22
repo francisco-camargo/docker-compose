@@ -16,6 +16,32 @@ This project will teach us about
 * Database migration
 * Running automated test
 
+# Quick Run Instructions
+
+Have access to DockerHub. In the parent directory of this project, build the images by running
+
+```bash
+docker compose build
+```
+
+To run the containers in detached mode, run
+
+```bash
+docker compose up -d
+```
+
+To view the application, in the browser go to
+
+```
+localhost:3000
+```
+
+To shut-down the containers run
+
+```bash
+docker compose down
+```
+
 # Version Differences
 
 The old version ran by using
