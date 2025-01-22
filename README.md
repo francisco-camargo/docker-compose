@@ -62,7 +62,7 @@ On Mac and Windows, Docker Engine already comes with Docker Compose. But if you 
 
 Verify that Docker Compose is working by running
 
-`docker-compose --version`
+`docker compose version`
 
 Here is a [guide](https://docs.docker.com/compose/install/linux/#install-using-the-repository) for Ubuntu.
 
@@ -74,23 +74,23 @@ The `docker-compose.yaml` file is how we can orchestrate what would otherwise ha
 
 I'm having to build the images directly first, before running the application
 
-`docker-compose build`
+`docker compose build`
 
 To force a build from scratch use
 
-`docker-compose build --no-cache`
+`docker compose build --no-cache`
 
 ## Run Application
 
 To run everything, from within the parent directory of this project, run
 
-`docker-compose up`
+`docker compose up`
 
 This will build images if they are not built already
 
 To run in detached mode
 
-`docker-compose up -d`
+`docker compose up -d`
 
 Can check on containers with
 
@@ -134,7 +134,7 @@ ENTRYPOINT ['sh', './docker-entrypoint.sh']
 
 ### End-of-Line Errors
 
-I was then observing errors within the backend container (even though the app still seemed to run when I inspect in the browser). These went away when I change the end-of-line character from CRLF to LF in both `docker-entrypoint.sh` and `wait-for`
+I was observing errors within the backend container (even though the app still seemed to run when I inspect in the browser). These went away when I change the end-of-line character from CRLF to LF in both `docker-entrypoint.sh` and `wait-for`
 
 ![1736977395710](image/README/1736977395710.png)
 
@@ -154,19 +154,19 @@ Getting a `node_modules missing` error (or `nodemon: not found`). This is descri
 
 ## Stop Application
 
-To stop and remove the containers
-`docker-compose down`
+To stop the containers
+`docker compose down`
 However, the images and volumes will remain
 
 ### Remove database
 
 View our volumes
 `docker volume ls`
-We will see a volume called `vidly_vidly` from `<directory>_<defined volume>`. We added a `<defined volume>` in our docker-compose and called it `vidly`. Now, recall that the `db` host uses `/vidly/data/db`, as defined in the docker-compose `db` section. Thus, by removing the volume `vidly_vidly`, we will have removed the database of our application.
+We will see a volume called `multi_container-application-vidly` from `<directory>_<defined volume>`. We added a `<defined volume>` in our docker-compose and called it `vidly`. Now, recall that the `db` host uses `/vidly/data/db`, as defined in the docker-compose `db` section. Thus, by removing the volume `multi-container-application_vidly`, we will have removed the database of our application.
 
 Remove a volume
 `docker volume rm <VOLUME NAME>`
-`docker volume rm vidly_vidly`
+`docker volume rm multi-container-application_vidly`
 
 # View in Browser
 
@@ -186,17 +186,17 @@ The IP address of this container can be seen by running
 `ifconfig`
 and looking in the `eth0` section.
 
-Let's pin the `api` host
+Let's ping the `api` host
 `ping api`
 That is, from the `web` host, ping the `api` host
 
 # Viewing Logs
 
 To view all the logs
-`docker-compose logs`
+`docker compose logs`
 
 To view the logs of only one container
-`docker-compose logs <id>`
+`docker compose logs <id>`
 
 # wait-for-it
 
